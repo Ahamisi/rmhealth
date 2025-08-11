@@ -76,11 +76,16 @@ const routes: Array<RouteRecordRaw> = [
         meta: { requiresAuth: true }
       }
     ]
+  },
+  // Catch-all route for SPA - must be last
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/outbound/auth'
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
