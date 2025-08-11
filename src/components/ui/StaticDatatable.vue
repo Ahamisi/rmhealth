@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SimpleHeader
+    <!-- <SimpleHeader
       :searchTerm="searchTerm"
       :sortBy="sortBy"
       :sortOrder="sortOrder"
@@ -14,7 +14,8 @@
       @export="handleExport"
       @print="handlePrint"
       @filter="handleFilter"
-    />
+
+    /> -->
     <Table
       :columns="columns"
       :items="paginatedItems"

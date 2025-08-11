@@ -68,6 +68,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'EditOrder',
         component: () => import('../modules/outbound/views/EditOrderView.vue'),
         meta: { requiresAuth: true }
+      },
+      {
+        path: 'stock-count-teams',
+        name: 'OutboundStockCountTeams',
+        component: () => import('@/modules/outbound/views/StockCountTeamsView.vue'),
+        meta: { requiresAuth: true }
       }
     ]
   }

@@ -105,9 +105,9 @@ const navItems = [
   { label: "Log Book", url: "/outbound/log-book" },
   { label: "Order Fulfilment", url: "/outbound/order-fulfilment" },
   {
-    label: "Stock Count", 
+    label: "Stock Count",
     dropdown: [
-      { title: "Stock Count Teams", route: "#", has_bottom_rule: true },
+      { title: "Stock Count Teams", route: "/outbound/stock-count-teams", has_bottom_rule: true },
       { title: "Product Stock Count", route: "#" },
     ]
   },
