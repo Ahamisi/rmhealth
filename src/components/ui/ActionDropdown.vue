@@ -32,7 +32,7 @@
           class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
         >
           <!-- View Order Icon -->
-          <img src="/src/assets/icons/eye.svg" alt="View" class="w-4 h-4">
+          <img src="/icons/eye.svg" alt="View" class="w-4 h-4">
           <span>View Order</span>
         </button>
 
@@ -43,7 +43,7 @@
           class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
         >
           <!-- Edit Order Icon -->
-          <img src="/src/assets/icons/pen.svg" alt="Edit" class="w-4 h-4">
+          <img src="/icons/pen.svg" alt="Edit" class="w-4 h-4">
           <span>Edit Order</span>
         </button>
 
@@ -56,7 +56,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Download Icon -->
-            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4">
+            <img src="/icons/download.svg" alt="Download" class="w-4 h-4">
             <span>Download Picking List</span>
           </button>
 
@@ -65,7 +65,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Pick Order Icon -->
-            <img src="/src/assets/icons/pick-order.svg" alt="Pick Order" class="w-4 h-4">
+            <img src="/icons/pick-order.svg" alt="Pick Order" class="w-4 h-4">
             <span>Pick Order</span>
           </button>
         </template>
@@ -77,7 +77,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Download Invoice Icon -->
-            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4">
+            <img src="/icons/download.svg" alt="Download" class="w-4 h-4">
             <span>Download Invoice</span>
           </button>
 
@@ -86,7 +86,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Download Waybill Icon -->
-            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4">
+            <img src="/icons/download.svg" alt="Download" class="w-4 h-4">
             <span>Download Waybill</span>
           </button>
         </template>
@@ -98,7 +98,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Download Invoice Icon -->
-            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4">
+            <img src="/icons/download.svg" alt="Download" class="w-4 h-4">
             <span>Download Invoice</span>
           </button>
 
@@ -107,7 +107,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Fulfilment Details Icon -->
-            <img src="/src/assets/icons/fufillment-details.svg" alt="Fulfilment Details" class="w-4 h-4">
+            <img src="/icons/fufillment-details.svg" alt="Fulfilment Details" class="w-4 h-4">
             <span>Fulfilment Details</span>
           </button>
 
@@ -116,7 +116,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Time Tracker Icon -->
-            <img src="/src/assets/icons/time.svg" alt="Time Tracker" class="w-4 h-4">
+            <img src="/icons/time.svg" alt="Time Tracker" class="w-4 h-4">
             <span>Time Tracker</span>
           </button>
 
@@ -125,7 +125,7 @@
             class="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center space-x-3 transition-colors"
           >
             <!-- Activity Log Icon -->
-            <img src="/src/assets/icons/activity-log.svg" alt="Activity Log" class="w-4 h-4">
+            <img src="/icons/activity-log.svg" alt="Activity Log" class="w-4 h-4">
             <span>Activity Log</span>
           </button>
         </template>

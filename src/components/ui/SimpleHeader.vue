@@ -7,7 +7,7 @@
           <!-- Search Input -->
           <div class="relative flex-1">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4">
+              <img src="/icons/search-icon.svg" alt="Search" class="w-4 h-4">
             </div>
             <input 
               type="text" 
@@ -32,7 +32,7 @@
                 showFilterPopover ? 'bg-gray-50' : ''
               ]"
             >
-              <img src="/src/assets/icons/filter.svg" alt="Filter" class="w-4 h-4">
+              <img src="/icons/filter.svg" alt="Filter" class="w-4 h-4">
             </button>
             
             <!-- Filter Popover -->
@@ -91,7 +91,7 @@
             @click="showSortDropdown = !showSortDropdown"
             class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border border-gray-200 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
           >
-            <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
+            <img src="/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
           </button>
           
           <!-- Sort Dropdown Menu -->
@@ -123,7 +123,7 @@
           @click="handleExport"
           class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border border-gray-200 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
         >
-          <img src="/src/assets/icons/download.svg" alt="Export" class="w-4 h-4">
+          <img src="/icons/download.svg" alt="Export" class="w-4 h-4">
         </button>
 
         <!-- Print Button -->

@@ -11,7 +11,7 @@
         <div class="flex items-center justify-between p-6 border-b border-gray-200">
           <div class="flex items-center space-x-3">
             <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
-              <img src="/src/assets/icons/trash.svg" alt="Delete" class="w-6 h-6 text-red-600" />
+              <img src="/icons/trash.svg" alt="Delete" class="w-6 h-6 text-red-600" />
             </div>
             <h2 class="text-lg font-semibold text-gray-900">Delete</h2>
           </div>
@@ -19,7 +19,7 @@
             @click="$emit('update:modelValue', false)"
             class="text-gray-400 hover:text-gray-600"
           >
-            <img src="/src/assets/icons/x-icon.svg" alt="Close" class="w-6 h-6" />
+            <img src="/icons/x-icon.svg" alt="Close" class="w-6 h-6" />
           </button>
         </div>
         

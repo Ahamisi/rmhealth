@@ -29,7 +29,7 @@
           <div>
             <h1 class="text-2xl font-semibold text-gray-900">Edit Order</h1>
             <div class="flex items-center space-x-2 text-gray-500 mt-1">
-              <img src="/src/assets/icons/info.svg" alt="Order" class="w-4 h-4">
+              <img src="/icons/info.svg" alt="Order" class="w-4 h-4">
               <span class="text-sm">{{ orderId }}</span>
             </div>
           </div>

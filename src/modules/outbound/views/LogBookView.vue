@@ -19,7 +19,7 @@
           <!-- Search Input -->
           <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4">
+              <img src="/icons/search-icon.svg" alt="Search" class="w-4 h-4">
             </div>
             <input 
               v-model="searchTerm"
@@ -36,7 +36,7 @@
               @click="showSortDropdown = !showSortDropdown"
               class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border-2 border-[#091E4224] border-l-1 rounded-r-[8px] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
-              <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
+              <img src="/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
             </button>
             
             <!-- Sort Dropdown Menu -->
@@ -68,7 +68,7 @@
           @click="downloadLogBooks"
           class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
         >
-          <img src="/src/assets/icons/download.svg" alt="Download" class="w-6 h-6 icon-white" />
+          <img src="/icons/download.svg" alt="Download" class="w-6 h-6 icon-white" />
           <span>Download Log Books</span>
         </button>
       </div>
@@ -90,14 +90,14 @@
                 class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
                 title="View Log Book"
               >
-                <img src="/src/assets/icons/eye.svg" alt="View" class="w-4 h-4" />
+                <img src="/icons/eye.svg" alt="View" class="w-4 h-4" />
               </button>
               <button 
                 @click="editLogBook(row)"
                 class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
                 title="Edit Log Book"
               >
-                <img src="/src/assets/icons/pen.svg" alt="Edit" class="w-4 h-4" />
+                <img src="/icons/pen.svg" alt="Edit" class="w-4 h-4" />
               </button>
             </div>
             <span v-else>{{ row[column.field] }}</span>

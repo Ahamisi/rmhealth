@@ -9,7 +9,7 @@
 
       <!-- Search Section (only show when no search has been performed) -->
       <div v-if="!hasSearched" class="bg-white rounded-lg p-8 mb-6 text-center">
-        <img src="/src/assets/icons/search-icon.svg" alt="Search Orders" class="w-16 h-16 mx-auto mb-4 text-blue-600" />
+        <img src="/icons/search-icon.svg" alt="Search Orders" class="w-16 h-16 mx-auto mb-4 text-blue-600" />
         <h2 class="text-xl font-semibold text-gray-900 mb-2">Let's Find Your Orders</h2>
         <p class="text-gray-600 mb-6">
           Please search by Order Ref No, Customer Name or Store Name<br />
@@ -29,7 +29,7 @@
           <!-- Search Input -->
           <div class="relative flex-1">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-5 h-5" />
+              <img src="/icons/search-icon.svg" alt="Search" class="w-5 h-5" />
             </div>
             <input 
               v-model="searchQuery"
@@ -71,7 +71,7 @@
               <!-- Search Input (Header) -->
               <div class="relative">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-                  <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4" />
+                  <img src="/icons/search-icon.svg" alt="Search" class="w-4 h-4" />
                 </div>
                 <input 
                   v-model="searchQuery"
@@ -84,11 +84,11 @@
 
               <!-- Filter and Sort -->
               <button class="p-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                <img src="/src/assets/icons/filter.svg" alt="Filter" class="w-4 h-4" />
+                <img src="/icons/filter.svg" alt="Filter" class="w-4 h-4" />
               </button>
 
               <button class="p-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50">
-                <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4" />
+                <img src="/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4" />
               </button>
             </div>
           </div>

@@ -4,8 +4,8 @@
     class="relative z-50 flex items-center justify-between px-4 py-2 bg-white border-b shadow-sm md:hidden">
     <!-- Left: Logo -->
     <div class="flex items-center space-x-2">
-      <img src="/src/assets/icons/remedial-icon.svg" alt="Logo" class="w-6 h-6" />
-      <!-- <img src="/src/assets/icons/remedial-icon.svg" alt="Logo" class="w-6 h-6" /> -->
+      <img src="/icons/remedial-icon.svg" alt="Logo" class="w-6 h-6" />
+      <!-- <img src="/icons/remedial-icon.svg" alt="Logo" class="w-6 h-6" /> -->
       <span class="text-sm font-semibold text-blue-700 uppercase">{{ selectedApp }}</span>
     </div>
 
@@ -145,7 +145,7 @@
             </ul>
           </div>
 
-          <img src="/src/assets/icons/remedial-icon.svg" alt="Remedial Logo" class="w-5 h-5" />
+          <img src="/icons/remedial-icon.svg" alt="Remedial Logo" class="w-5 h-5" />
           <span class="text-xl font-bold text-blue-700 uppercase department-title">{{ selectedApp }}</span>
         </div>
 
@@ -177,7 +177,7 @@
         <!-- Search Input -->
         <div class="relative">
           <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-            <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-5 h-5">
+            <img src="/icons/search-icon.svg" alt="Search" class="w-5 h-5">
           </div>
           <input 
             v-model="searchTerm" 
@@ -189,7 +189,7 @@
         
         <!-- Notifications -->
         <div class="relative cursor-pointer" @click="openModal">
-          <img src="/src/assets/icons/notification.svg" alt="Notifications" class="w-6 h-6">
+          <img src="/icons/notification.svg" alt="Notifications" class="w-6 h-6">
           <div
             class="absolute flex items-center justify-center w-4 h-4 px-3 text-xs font-semibold rounded-full -top-2 -right-2 bg-rose-600 text-gray-50">
             {{ notificationCount > 9 ? "9+" : notificationCount }}
@@ -200,13 +200,13 @@
         <div class="relative cursor-pointer" @click="toggleProfileMenu">
           <div class="flex items-center justify-center w-8 h-8"
             :class="{ 'bg-gray-200 rounded-full': isProfileMenuOpen }">
-            <img src="/src/assets/icons/avatar.svg" alt="Profile" class="w-8 h-8 rounded-full">
+            <img src="/icons/avatar.svg" alt="Profile" class="w-8 h-8 rounded-full">
           </div>
           <div v-if="isProfileMenuOpen"
             class="absolute right-0 z-50 w-64 py-3 mt-1 bg-white border border-gray-300 rounded-md shadow-lg">
             <div class="flex items-center px-4 py-2 border-b border-gray-200">
               <div class="relative w-10 h-10">
-                <img src="/src/assets/icons/avatar.svg" alt="Profile" class="w-10 h-10 rounded-full">
+                <img src="/icons/avatar.svg" alt="Profile" class="w-10 h-10 rounded-full">
                 <!-- Green Status Dot -->
                 <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
               </div>
@@ -275,11 +275,11 @@ const isMobileMenuOpen = ref(false)
 
 // Mock data
 const applications = [
-  { name: 'Procurement', icon: '/src/assets/icons/remedial-icon.svg' },
-  { name: 'Inbound', icon: '/src/assets/icons/remedial-icon.svg' },
-  { name: 'Customer Success', icon: '/src/assets/icons/remedial-icon.svg' },
-  { name: 'Outbound', icon: '/src/assets/icons/remedial-icon.svg' },
-  { name: 'Logistics', icon: '/src/assets/icons/remedial-icon.svg' },
+  { name: 'Procurement', icon: '/icons/remedial-icon.svg' },
+  { name: 'Inbound', icon: '/icons/remedial-icon.svg' },
+  { name: 'Customer Success', icon: '/icons/remedial-icon.svg' },
+  { name: 'Outbound', icon: '/icons/remedial-icon.svg' },
+  { name: 'Logistics', icon: '/icons/remedial-icon.svg' },
 ]
 
 const branches = [

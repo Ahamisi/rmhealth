@@ -36,7 +36,7 @@
                 @click="$emit('close')"
                 class="p-2 hover:bg-gray-100 rounded-md transition-colors"
               >
-                <img src="/src/assets/icons/x-icon.svg" alt="Close" class="w-5 h-5">
+                <img src="/icons/x-icon.svg" alt="Close" class="w-5 h-5">
               </button>
             </div>
 
@@ -93,14 +93,14 @@
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                     <div class="flex items-center space-x-2">
-                      <img src="/src/assets/icons/info.svg" alt="Phone" class="w-4 h-4">
+                      <img src="/icons/info.svg" alt="Phone" class="w-4 h-4">
                       <span class="text-sm text-gray-900">{{ mockCustomerData.phone }}</span>
                     </div>
                   </div>
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Store</label>
                     <div class="flex items-center space-x-2">
-                      <img src="/src/assets/icons/info.svg" alt="Store" class="w-4 h-4">
+                      <img src="/icons/info.svg" alt="Store" class="w-4 h-4">
                       <span class="text-sm text-gray-900">{{ mockCustomerData.store }}</span>
                     </div>
                   </div>
@@ -119,7 +119,7 @@
                   <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Date</label>
                     <div class="flex items-center space-x-2">
-                      <img src="/src/assets/icons/calendar.svg" alt="Date" class="w-4 h-4">
+                      <img src="/icons/calendar.svg" alt="Date" class="w-4 h-4">
                       <span class="text-sm text-gray-900">{{ mockCustomerData.date }}</span>
                     </div>
                   </div>
@@ -188,9 +188,9 @@
                            <div>
                              <span :class="[activity.iconBg, 'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white']">
                                <!-- Assign Icon -->
-                               <img v-if="activity.type === 'assign'" src="/src/assets/icons/assign.svg" alt="Assign" class="w-4 h-4 icon-white">
+                               <img v-if="activity.type === 'assign'" src="/icons/assign.svg" alt="Assign" class="w-4 h-4 icon-white">
                                <!-- Status Change Icon -->
-                               <img v-else-if="activity.type === 'status'" src="/src/assets/icons/change.svg" alt="Status Change" class="w-4 h-4 icon-white">
+                               <img v-else-if="activity.type === 'status'" src="/icons/change.svg" alt="Status Change" class="w-4 h-4 icon-white">
                              </span>
                            </div>
                           <div class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">

@@ -26,7 +26,7 @@
           <div>
             <h1 class="text-2xl font-semibold text-gray-900">Picking List</h1>
             <div class="flex items-center space-x-2 text-gray-500 mt-1">
-              <img src="/src/assets/icons/info.svg" alt="Order Ref" class="w-4 h-4">
+              <img src="/icons/info.svg" alt="Order Ref" class="w-4 h-4">
               <span class="text-sm">REF: {{ orderRef }}</span>
             </div>
           </div>
@@ -36,13 +36,13 @@
         <div class="flex items-center space-x-3">
           <!-- Download Button -->
           <button class="flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4 mr-2">
+            <img src="/icons/download.svg" alt="Download" class="w-4 h-4 mr-2">
             <span class="text-sm font-medium">Download</span>
           </button>
           
           <!-- Export Button -->
           <button class="flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-            <img src="/src/assets/icons/download.svg" alt="Export" class="w-4 h-4 mr-2">
+            <img src="/icons/download.svg" alt="Export" class="w-4 h-4 mr-2">
             <span class="text-sm font-medium">Export</span>
           </button>
           
@@ -65,15 +65,15 @@
             <div class="space-y-3">
               <h3 class="text-sm font-medium text-gray-700 mb-3">Customer Details</h3>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/avatar.svg" alt="Customer" class="w-4 h-4">
+                <img src="/icons/avatar.svg" alt="Customer" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ customerDetails.name }}</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Phone" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Phone" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ customerDetails.phone }}</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Store" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Store" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ customerDetails.store }}</span>
               </div>
             </div>
@@ -82,15 +82,15 @@
             <div class="space-y-3">
               <h3 class="text-sm font-medium text-gray-700 mb-3">Delivery Details</h3>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/calendar.svg" alt="Date" class="w-4 h-4">
+                <img src="/icons/calendar.svg" alt="Date" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ deliveryDetails.date }}</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/time.svg" alt="Time" class="w-4 h-4">
+                <img src="/icons/time.svg" alt="Time" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ deliveryDetails.time }}</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Address" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Address" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ deliveryDetails.address }}</span>
               </div>
             </div>
@@ -99,15 +99,15 @@
             <div class="space-y-3">
               <h3 class="text-sm font-medium text-gray-700 mb-3">Order Details</h3>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Order Number" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Order Number" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ orderDetails.orderNumber }}</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Total Items" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Total Items" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ orderDetails.totalItems }} items</span>
               </div>
               <div class="flex items-center space-x-2">
-                <img src="/src/assets/icons/info.svg" alt="Total Amount" class="w-4 h-4">
+                <img src="/icons/info.svg" alt="Total Amount" class="w-4 h-4">
                 <span class="text-sm text-gray-900">{{ orderDetails.totalAmount }}</span>
               </div>
             </div>

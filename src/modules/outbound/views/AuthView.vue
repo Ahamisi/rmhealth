@@ -15,7 +15,7 @@
       <!-- Logo -->
       <div class="text-center mb-8">
         <div class="flex items-center justify-center">
-          <img src="/src/assets/icons/logo.svg" alt="Remedial ERP" class="w-22 h-15" />
+          <img src="/icons/logo.svg" alt="Remedial ERP" class="w-22 h-15" />
           <!-- <span class="ml-3 text-2xl font-display font-semibold text-gray-900">Remedial ERP</span> -->
         </div>
       </div>
@@ -108,14 +108,14 @@ import { validatePhone as isValidPhone } from '@/lib/utils'
 
 // Phone icon using Nigeria flag
 const PhoneIcon = () => h('img', {
-  src: '/src/assets/icons/nigeria.svg',
+  src: '/icons/nigeria.svg',
   alt: 'Phone',
   class: 'w-4 h-4'
 })
 
 // Eye icon for password visibility
 const EyeIcon = () => h('img', {
-  src: '/src/assets/icons/eye.svg',
+  src: '/icons/eye.svg',
   alt: 'Toggle password visibility',
   class: 'w-4 h-4 cursor-pointer'
 })

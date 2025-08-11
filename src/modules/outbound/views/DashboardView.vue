@@ -16,7 +16,7 @@
               <div class="flex items-center justify-between">
                 <h2 class="text-lg font-semibold text-gray-900">Daily Fulfilment Stats</h2>
                 <div class="flex items-center text-sm text-gray-500">
-                  <img src="/src/assets/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
+                  <img src="/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
                   <span class="ml-2">{{ currentDate }}</span>
                 </div>
               </div>
@@ -396,9 +396,9 @@ const orderTimeTrackerData = ref<TimelineStep[]>([
 // Icon mapping for dynamic rendering
 const getAtlasKitIcon = (iconName: string) => {
   const icons: Record<string, string> = {
-    'credit-card': '/src/assets/icons/accounting.svg',
-    'document-filled': '/src/assets/icons/inventory.svg',
-    'box': '/src/assets/icons/logistics.svg'
+    'credit-card': '/icons/accounting.svg',
+    'document-filled': '/icons/inventory.svg',
+    'box': '/icons/logistics.svg'
   };
   
   return icons[iconName] || icons['box'];

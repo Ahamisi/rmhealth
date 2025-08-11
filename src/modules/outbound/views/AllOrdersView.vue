@@ -27,7 +27,7 @@
           <!-- Search -->
           <div class="relative">
             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
-              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-5 h-5">
+              <img src="/icons/search-icon.svg" alt="Search" class="w-5 h-5">
             </div>
             <input 
               v-model="searchQuery"
@@ -52,7 +52,7 @@
             @download="handleDownload($event, 'Time Tracker Report')"
           >
             <template #icon>
-              <img src="/src/assets/icons/download.svg" alt="Download" class="w-3.5 h-3.5 flex-shrink-0">
+              <img src="/icons/download.svg" alt="Download" class="w-3.5 h-3.5 flex-shrink-0">
             </template>
           </DownloadDropdown>
           
@@ -62,7 +62,7 @@
             @download="handleDownload($event, 'Order Report')"
           >
             <template #icon>
-              <img src="/src/assets/icons/download.svg" alt="Download" class="w-3.5 h-3.5 flex-shrink-0">
+              <img src="/icons/download.svg" alt="Download" class="w-3.5 h-3.5 flex-shrink-0">
             </template>
           </DownloadDropdown>
         </div>
@@ -100,7 +100,7 @@
           </div>
           <div v-else-if="column.field === 'actions'" class="flex items-center justify-center">
             <button v-if="row.status === 'new'" @click.stop="handleOrderAction(row)" class="text-gray-400 hover:text-gray-600">
-              <img src="/src/assets/icons/eye.svg" alt="View Order" class="w-6 h-6">
+              <img src="/icons/eye.svg" alt="View Order" class="w-6 h-6">
             </button>
             <ActionDropdown v-else :order="row" @action="handleOrderMenuAction" />
           </div>

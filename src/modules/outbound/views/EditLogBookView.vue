@@ -25,7 +25,7 @@
           <div>
             <h1 class="text-2xl font-semibold text-gray-900">Edit Log Book</h1>
             <div class="flex items-center space-x-2 text-gray-500 mt-1">
-              <img src="/src/assets/icons/avatar.svg" alt="Driver" class="w-4 h-4">
+              <img src="/icons/avatar.svg" alt="Driver" class="w-4 h-4">
               <span class="text-sm">{{ driverName }}</span>
             </div>
           </div>

@@ -59,7 +59,7 @@
                   @click="$emit('close')"
                   class="text-gray-400 hover:text-gray-600 transition-colors"
                 >
-                  <img src="/src/assets/icons/x-icon.svg" alt="Close" class="w-5 h-5">
+                  <img src="/icons/x-icon.svg" alt="Close" class="w-5 h-5">
                 </button>
               </div>
 
@@ -78,7 +78,7 @@
                           class="block w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
                         />
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                          <img src="/src/assets/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
+                          <img src="/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
                         </div>
                       </div>
                     </div>
@@ -92,7 +92,7 @@
                           class="block w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
                         />
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
-                          <img src="/src/assets/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
+                          <img src="/icons/calendar.svg" alt="Calendar" class="w-4 h-4">
                         </div>
                       </div>
                     </div>

@@ -9,7 +9,7 @@
     
     <!-- Preloader icon -->
     <div class="relative z-10">
-      <img src="/src/assets/icons/preloader.svg" alt="Loading..." class="w-16 h-16 animate-spin" />
+      <img src="/icons/preloader.svg" alt="Loading..." class="w-16 h-16 animate-spin" />
     </div>
   </div>
 </template>
