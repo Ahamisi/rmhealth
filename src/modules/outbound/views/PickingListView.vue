@@ -26,127 +26,90 @@
           <div>
             <h1 class="text-2xl font-semibold text-gray-900">Picking List</h1>
             <div class="flex items-center space-x-2 text-gray-500 mt-1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <img src="/src/assets/icons/info.svg" alt="Order Ref" class="w-4 h-4">
               <span class="text-sm">REF: {{ orderRef }}</span>
             </div>
           </div>
         </div>
+
+        <!-- Action Buttons -->
         <div class="flex items-center space-x-3">
-          <button
-            @click="showConfirmPickingModal = true"
-            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            Confirm Picking List
+          <!-- Download Button -->
+          <button class="flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+            <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4 mr-2">
+            <span class="text-sm font-medium">Download</span>
           </button>
-          <button
-            @click="showPackagingModal = true"
-            class="px-4 py-2 text-sm font-medium text-white bg-primary-600 border border-transparent rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            Confirm Picking List & CheckOut
+          
+          <!-- Export Button -->
+          <button class="flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+            <img src="/src/assets/icons/download.svg" alt="Export" class="w-4 h-4 mr-2">
+            <span class="text-sm font-medium">Export</span>
+          </button>
+          
+          <!-- Print Button -->
+          <button class="flex items-center px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 8H5C4.20435 8 3.44129 8.31607 2.87868 8.87868C2.31607 9.44129 2 10.2043 2 11V17C2 17.7956 2.31607 18.5587 2.87868 19.1213C3.44129 19.6839 4.20435 20 5 20H6V16H18V20H19C19.7956 20 20.5587 19.6839 21.1213 19.1213C21.6839 18.5587 22 17.7956 22 17V11C22 10.2043 21.6839 9.44129 21.1213 8.87868C20.5587 8.31607 19.7956 8 19 8ZM8 18V14H16V18H8ZM19 6H5V2H19V6Z" fill="#44546F"/>
+            </svg>
+            <span class="text-sm font-medium ml-2">Print</span>
           </button>
         </div>
       </div>
 
-      <!-- Order Information Cards -->
-      <div class="grid grid-cols-3 gap-6 mb-8">
-        <!-- Seller -->
-        <div class="bg-white rounded-lg p-6">
-          <h3 class="text-sm font-medium text-gray-500 mb-4">Seller</h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ seller.name }}</span>
+      <!-- Order Summary Card -->
+      <div class="bg-white rounded-lg border border-gray-200 shadow-sm mb-6">
+        <div class="p-6">
+          <h2 class="text-lg font-semibold text-gray-900 mb-4">Order Summary</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Customer Details -->
+            <div class="space-y-3">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Customer Details</h3>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/avatar.svg" alt="Customer" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ customerDetails.name }}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Phone" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ customerDetails.phone }}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Store" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ customerDetails.store }}</span>
+              </div>
             </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 16.92V13.04C22 13.04 22 13.04 22 13.04C21.99 13.01 21.99 12.99 21.98 12.96C21.96 12.86 21.93 12.77 21.88 12.69C21.86 12.65 21.84 12.62 21.81 12.58L16.5 2.58C16.46 2.5 16.4 2.44 16.34 2.39C16.27 2.33 16.19 2.29 16.1 2.27C16.06 2.26 16.03 2.25 15.99 2.25H8.01C7.97 2.25 7.94 2.26 7.9 2.27C7.81 2.29 7.73 2.33 7.66 2.39C7.6 2.44 7.54 2.5 7.5 2.58L2.19 12.58C2.16 12.62 2.14 12.65 2.12 12.69C2.07 12.77 2.04 12.86 2.02 12.96C2.01 12.99 2.01 13.01 2 13.04V16.92C2 18.01 2.89 18.9 3.98 18.9H20.02C21.11 18.9 22 18.01 22 16.92V16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ seller.phone }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ seller.email }}</span>
-            </div>
-            <div class="flex items-start space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5">
-                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ seller.address }}</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Buyer -->
-        <div class="bg-white rounded-lg p-6">
-          <h3 class="text-sm font-medium text-gray-500 mb-4">Buyer</h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ buyer.name }}</span>
+            <!-- Delivery Details -->
+            <div class="space-y-3">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Delivery Details</h3>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/calendar.svg" alt="Date" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ deliveryDetails.date }}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/time.svg" alt="Time" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ deliveryDetails.time }}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Address" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ deliveryDetails.address }}</span>
+              </div>
             </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 16.92V13.04C22 13.04 22 13.04 22 13.04C21.99 13.01 21.99 12.99 21.98 12.96C21.96 12.86 21.93 12.77 21.88 12.69C21.86 12.65 21.84 12.62 21.81 12.58L16.5 2.58C16.46 2.5 16.4 2.44 16.34 2.39C16.27 2.33 16.19 2.29 16.1 2.27C16.06 2.26 16.03 2.25 15.99 2.25H8.01C7.97 2.25 7.94 2.26 7.9 2.27C7.81 2.29 7.73 2.33 7.66 2.39C7.6 2.44 7.54 2.5 7.5 2.58L2.19 12.58C2.16 12.62 2.14 12.65 2.12 12.69C2.07 12.77 2.04 12.86 2.02 12.96C2.01 12.99 2.01 13.01 2 13.04V16.92C2 18.01 2.89 18.9 3.98 18.9H20.02C21.11 18.9 22 18.01 22 16.92V16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ buyer.phone }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 21L12 16L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ buyer.store }}</span>
-            </div>
-            <div class="flex items-start space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mt-0.5">
-                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.3639 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ buyer.address }}</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- Order -->
-        <div class="bg-white rounded-lg p-6">
-          <h3 class="text-sm font-medium text-gray-500 mb-4">Order</h3>
-          <div class="space-y-3">
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">REF: {{ orderRef }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ order.date }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ order.agent }}</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22 16.92V13.04C22 13.04 22 13.04 22 13.04C21.99 13.01 21.99 12.99 21.98 12.96C21.96 12.86 21.93 12.77 21.88 12.69C21.86 12.65 21.84 12.62 21.81 12.58L16.5 2.58C16.46 2.5 16.4 2.44 16.34 2.39C16.27 2.33 16.19 2.29 16.1 2.27C16.06 2.26 16.03 2.25 15.99 2.25H8.01C7.97 2.25 7.94 2.26 7.9 2.27C7.81 2.29 7.73 2.33 7.66 2.39C7.6 2.44 7.54 2.5 7.5 2.58L2.19 12.58C2.16 12.62 2.14 12.65 2.12 12.69C2.07 12.77 2.04 12.86 2.02 12.96C2.01 12.99 2.01 13.01 2 13.04V16.92C2 18.01 2.89 18.9 3.98 18.9H20.02C21.11 18.9 22 18.01 22 16.92V16.92Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <span class="text-sm text-gray-900">{{ order.phone }}</span>
+            <!-- Order Details -->
+            <div class="space-y-3">
+              <h3 class="text-sm font-medium text-gray-700 mb-3">Order Details</h3>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Order Number" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ orderDetails.orderNumber }}</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Total Items" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ orderDetails.totalItems }} items</span>
+              </div>
+              <div class="flex items-center space-x-2">
+                <img src="/src/assets/icons/info.svg" alt="Total Amount" class="w-4 h-4">
+                <span class="text-sm text-gray-900">{{ orderDetails.totalAmount }}</span>
+              </div>
             </div>
           </div>
         </div>

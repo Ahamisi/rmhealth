@@ -25,10 +25,7 @@
           <div>
             <h1 class="text-2xl font-semibold text-gray-900">Log Book</h1>
             <div class="flex items-center space-x-2 text-gray-500 mt-1">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>
-                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-              </svg>
+              <img src="/src/assets/icons/avatar.svg" alt="Driver" class="w-4 h-4">
               <span class="text-sm">{{ logBook?.driverName || 'JANET ADEAJAYI' }}</span>
             </div>
           </div>

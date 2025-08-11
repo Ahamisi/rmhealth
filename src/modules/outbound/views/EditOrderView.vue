@@ -14,26 +14,24 @@
       </nav>
 
       <!-- Page Header -->
-      <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
-          <button 
+          <button
             @click="handleBack"
-            class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
+            class="inline-flex items-center text-gray-500 hover:text-gray-700 transition-colors"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 12H5M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span class="font-medium">Back</span>
+            <span class="ml-2 text-sm font-medium">Back</span>
           </button>
-        </div>
-        
-        <div class="flex items-center space-x-2">
-          <h1 class="text-xl font-semibold text-gray-900">Edit Order</h1>
-          <div class="flex items-center space-x-2 text-gray-500">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 1C8.55228 1 9 1.44772 9 2V3H13C13.5523 3 14 3.44772 14 4C14 4.55228 13.5523 5 13 5H12V13C12 14.1046 11.1046 15 10 15H6C4.89543 15 4 14.1046 4 13V5H3C2.44772 5 2 4.55228 2 4C2 3.44772 2.44772 3 3 3H7V2C7 1.44772 7.44772 1 8 1ZM6 5V13H10V5H6Z" fill="currentColor"/>
-            </svg>
-            <span class="text-sm">{{ orderId }}</span>
+          
+          <div>
+            <h1 class="text-2xl font-semibold text-gray-900">Edit Order</h1>
+            <div class="flex items-center space-x-2 text-gray-500 mt-1">
+              <img src="/src/assets/icons/info.svg" alt="Order" class="w-4 h-4">
+              <span class="text-sm">{{ orderId }}</span>
+            </div>
           </div>
         </div>
 

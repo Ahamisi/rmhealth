@@ -6,9 +6,9 @@
     <main class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <!-- Page Header -->
       <div class="flex items-center justify-between mb-6">
-        <h1 class="text-2xl font-semibold text-gray-900">Log Book</h1>
+        <h1 class="text-md font-semibold text-[#626F86]">Log Book</h1>
         <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-          <Icon name="download" :size="16" className="mr-2" />
+          <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4 mr-2 icon-white" />
           Download Log Books
         </button>
       </div>
@@ -19,13 +19,13 @@
           <!-- Search -->
           <div class="relative">
             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Icon name="search" :size="16" className="text-gray-400" />
+              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4 text-gray-400" />
             </div>
             <input
               v-model="searchQuery"
               type="text"
               placeholder="Search"
-              class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg text-sm placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500"
+              class="block w-full input-search"
               @keyup.enter="handleSearch"
             />
           </div>
@@ -37,7 +37,7 @@
             @click="showFilterModal = true"
             class="inline-flex items-center px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
           >
-            <Icon name="filter" :size="16" className="mr-2" />
+            <img src="/src/assets/icons/filter.svg" alt="Filter" class="w-4 h-4 mr-2" />
             Filter
           </button>
 
@@ -46,7 +46,7 @@
             @click="showSortMenu = !showSortMenu"
             class="relative inline-flex items-center px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
           >
-            <Icon name="sort" :size="16" className="mr-2" />
+            <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4 mr-2" />
             Sort
             
             <!-- Sort Dropdown -->
@@ -77,81 +77,34 @@
       </div>
 
       <!-- Log Book Table -->
-      <div class="bg-white rounded-lg overflow-hidden shadow-sm">
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-              <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  ID
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Driver Name
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Order Count
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  State
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Delivery Timeline
-                </th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr
-                v-for="logBook in filteredLogBooks"
-                :key="logBook.id"
-                class="hover:bg-gray-50"
-              >
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {{ logBook.id }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {{ logBook.driverName }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {{ logBook.orderCount }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {{ logBook.state }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  {{ logBook.deliveryTimeline }}
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <div class="flex items-center space-x-2">
-                    <!-- View Button -->
-                    <button
-                      @click="viewLogBook(logBook)"
-                      class="text-gray-400 hover:text-gray-600 transition-colors"
-                      title="View Log Book"
-                    >
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 8.25C9.92893 8.25 8.25 9.92893 8.25 12C8.25 14.0711 9.92893 15.75 12 15.75C14.0711 15.75 15.75 14.0711 15.75 12C15.75 9.92893 14.0711 8.25 12 8.25ZM9.75 12C9.75 10.7574 10.7574 9.75 12 9.75C13.2426 9.75 14.25 10.7574 14.25 12C14.25 13.2426 13.2426 14.25 12 14.25C10.7574 14.25 9.75 13.2426 9.75 12Z" fill="currentColor"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.25C7.71979 2.25 4.12229 4.92479 2.36029 8.7248C2.24629 8.97979 2.24629 9.27021 2.36029 9.5252C4.12229 13.3252 7.71979 15.75 12 15.75C16.2802 15.75 19.8777 13.0752 21.6397 9.2752C21.7537 9.02021 21.7537 8.72979 21.6397 8.4748C19.8777 4.9248 16.2802 2.25 12 2.25ZM3.76779 9C5.36779 12.1677 8.46779 14.25 12 14.25C15.5322 14.25 18.6322 12.1677 20.2322 9C18.6322 5.83229 15.5322 3.75 12 3.75C8.46779 3.75 5.36779 5.83229 3.76779 9Z" fill="currentColor"/>
-                      </svg>
-                    </button>
-
-                    <!-- Edit Button -->
-                    <button
-                      @click="editLogBook(logBook)"
-                      class="text-gray-400 hover:text-gray-600 transition-colors"
-                      title="Edit Log Book"
-                    >
-                      <Icon name="edit" :size="20" />
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <StaticDatatable
+        :columns="logBookColumns"
+        :data="filteredLogBooks"
+        :searchable="true"
+        :exportable="true"
+        :printable="true"
+        :perPage="10"
+      >
+        <template #column="{ props: { row, column } }">
+          <div v-if="column.field === 'actions'" class="flex items-center justify-center space-x-2">
+            <button 
+              @click="viewLogBook(row)"
+              class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
+              title="View Log Book"
+            >
+              <img src="/src/assets/icons/eye.svg" alt="View" class="w-4 h-4" />
+            </button>
+            <button 
+              @click="editLogBook(row)"
+              class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
+              title="Edit Log Book"
+            >
+              <img src="/src/assets/icons/pen.svg" alt="Edit" class="w-4 h-4" />
+            </button>
+          </div>
+          <span v-else>{{ row[column.field] }}</span>
+        </template>
+      </StaticDatatable>
     </main>
 
     <!-- Filter Modal -->
@@ -171,9 +124,9 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import AppHeader from '@/components/layout/AppHeader.vue'
-import Icon from '@/components/ui/Icon.vue'
-import LogBookFilterModal from '@/components/outbound/LogBookFilterModal.vue'
 
+import LogBookFilterModal from '@/components/outbound/LogBookFilterModal.vue'
+import StaticDatatable from '@/components/ui/StaticDatatable.vue'
 
 interface LogBook {
   id: string
@@ -191,7 +144,17 @@ interface Filters {
 
 const router = useRouter()
 
-// State
+// Table columns for log books
+const logBookColumns = ref([
+  { field: 'id', label: 'ID', sortable: true },
+  { field: 'driverName', label: 'Driver Name', sortable: true },
+  { field: 'orderCount', label: 'Order Count', sortable: true },
+  { field: 'state', label: 'State', sortable: true },
+  { field: 'deliveryTimeline', label: 'Delivery Timeline', sortable: true },
+  { field: 'actions', label: 'Actions', sortable: false },
+])
+
+// Search and filter state
 const searchQuery = ref('')
 const showFilterModal = ref(false)
 const showSortMenu = ref(false)

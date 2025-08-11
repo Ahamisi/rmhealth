@@ -1,20 +1,22 @@
 <template>
   <Teleport to="body">
     <Transition
-      enter-active-class="transform ease-out duration-300 transition"
-      enter-from-class="translate-y-[-100%] opacity-0"
-      enter-to-class="translate-y-0 opacity-100"
-      leave-active-class="transition ease-in duration-200"
-      leave-from-class="opacity-100"
-      leave-to-class="opacity-0"
+      enter-active-class="transition-all duration-300 ease-out"
+      enter-from-class="transform -translate-y-full opacity-0"
+      enter-to-class="transform translate-y-0 opacity-100"
+      leave-active-class="transition-all duration-300 ease-out"
+      leave-from-class="transform translate-y-0 opacity-100"
+      leave-to-class="transform -translate-y-full opacity-0"
+      @after-leave="onAfterLeave"
     >
-      <div v-if="show" class="fixed top-4 left-1/2 -translate-x-1/2 z-[100]">
-        <div
-          :class="[
-            'rounded-full shadow-lg flex items-center space-x-2 py-2 px-4',
-            toastClasses,
-          ]"
-        >
+      <div v-if="show" class="fixed inset-0 z-50 flex justify-center pointer-events-none">
+        <div class="mt-8 pointer-events-auto">
+          <div
+            :class="[
+              'rounded-full shadow-lg flex items-center space-x-3 py-4 px-6 min-w-max',
+              toastClasses,
+            ]"
+          >
           <!-- Icon -->
           <div class="flex-shrink-0">
             <svg
@@ -37,6 +39,7 @@
           <!-- Message -->
           <div class="flex-1 text-sm font-medium text-white">
             {{ message }}
+          </div>
           </div>
         </div>
       </div>
@@ -83,9 +86,10 @@ const toastClasses = computed(() => {
 
 const close = () => {
   show.value = false
-  setTimeout(() => {
-    emit('close')
-  }, 200); // allow for fade-out transition
+}
+
+const onAfterLeave = () => {
+  emit('close')
 }
 
 onMounted(() => {

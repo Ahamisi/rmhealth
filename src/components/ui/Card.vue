@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white rounded-lg border border-gray-200 shadow-sm">
-    <div v-if="$slots.header" class="p-6 border-b border-gray-200">
+    <div v-if="$slots.header" class="px-6 pt-4 pb-0">
       <slot name="header" />
     </div>
     <div :class="noPadding ? '' : 'p-6'">

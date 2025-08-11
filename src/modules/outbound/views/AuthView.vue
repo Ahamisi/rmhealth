@@ -33,7 +33,7 @@
             v-model="form.phone"
             type="tel"
             label="Phone"
-            placeholder="+234 801 020 202020"
+            placeholder="234 801 020 202020"
             required
             :error="errors.phone"
             :prefix-icon="PhoneIcon"
@@ -48,7 +48,7 @@
             placeholder="••••••••••"
             required
             :error="errors.password"
-            :suffix-icon="showPassword ? EyeSlashIcon : EyeIcon"
+            :suffix-icon="EyeIcon"
             @suffix-click="togglePassword"
             @blur="validatePassword"
           />
@@ -106,42 +106,19 @@ import UiInput from '@/components/ui/Input.vue'
 import Preloader from '@/components/ui/Preloader.vue'
 import { validatePhone as isValidPhone } from '@/lib/utils'
 
-// Eye icons for password visibility toggle
-const EyeIcon = () => h('svg', {
-  class: 'w-4 h-4',
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24'
-}, h('path', {
-  'stroke-linecap': 'round',
-  'stroke-linejoin': 'round',
-  'stroke-width': '2',
-  d: 'M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z'
-}))
+// Phone icon using Nigeria flag
+const PhoneIcon = () => h('img', {
+  src: '/src/assets/icons/nigeria.svg',
+  alt: 'Phone',
+  class: 'w-4 h-4'
+})
 
-const EyeSlashIcon = () => h('svg', {
-  class: 'w-4 h-4',
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24'
-}, h('path', {
-  'stroke-linecap': 'round',
-  'stroke-linejoin': 'round',
-  'stroke-width': '2',
-  d: 'M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21'
-}))
-
-const PhoneIcon = () => h('svg', {
-  class: 'w-4 h-4',
-  fill: 'none',
-  stroke: 'currentColor',
-  viewBox: '0 0 24 24'
-}, h('path', {
-  'stroke-linecap': 'round',
-  'stroke-linejoin': 'round',
-  'stroke-width': '2',
-  d: 'M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
-}))
+// Eye icon for password visibility
+const EyeIcon = () => h('img', {
+  src: '/src/assets/icons/eye.svg',
+  alt: 'Toggle password visibility',
+  class: 'w-4 h-4 cursor-pointer'
+})
 
 const router = useRouter()
 
@@ -179,8 +156,8 @@ const validatePhone = () => {
 const validatePassword = () => {
   if (!form.password) {
     errors.password = 'Password is required'
-  } else if (form.password.length < 6) {
-    errors.password = 'Password must be at least 6 characters'
+  } else if (form.password.length < 4) {
+    errors.password = 'Password must be at least 4 characters'
   } else {
     errors.password = ''
   }
