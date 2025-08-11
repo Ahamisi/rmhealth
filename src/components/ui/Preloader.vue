@@ -7,6 +7,7 @@
       radial-gradient(ellipse 400px 200px at 50% 100%, rgba(12, 102, 228, 0.1) 0%, transparent 50%)
     "></div>
     
+    
     <!-- Preloader icon -->
     <div class="relative z-10">
       <img src="/icons/preloader.svg" alt="Loading..." class="w-16 h-16 animate-spin" />
