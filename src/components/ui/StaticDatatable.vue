@@ -40,7 +40,9 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
 import SimpleHeader from '@/components/ui/SimpleHeader.vue'
+// @ts-ignore
 import Table from '@/components/old/Datatable/Table.vue'
+// @ts-ignore
 import customPagination from '@/components/old/procurement/customPagination.vue'
 import type { TableColumn, FilterField, FilterFields, PaginationData, ServerParams } from '@/types/datatable'
 

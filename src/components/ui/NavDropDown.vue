@@ -50,7 +50,7 @@
             {{ item.title }}
           </router-link>
           <a
-            v-else-if="item.route"
+            v-else-if="item.route && typeof item.route === 'string'"
             :href="item.route"
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             @click="$emit('close')"

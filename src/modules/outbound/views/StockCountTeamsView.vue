@@ -27,7 +27,7 @@
               @input="onSearch"
               type="text" 
               placeholder="Search..." 
-              class="w-80 bg-white border-2 border-[#091E4224] rounded-l-[16px] pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent border-r-0"
+              class="w-80 bg-white border-2 border-[#091E4224] rounded-l-[8px] pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent border-r-0"
             >
           </div>
           
@@ -35,7 +35,7 @@
           <div class="relative" ref="sortDropdownRef">
             <button 
               @click="showSortDropdown = !showSortDropdown"
-              class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border-2 border-[#091E4224] border-l-0 rounded-r-[16px] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border-2 border-[#091E4224] border-l-1 rounded-r-[8px] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
             </button>
@@ -80,7 +80,7 @@
       </div>
 
       <!-- Data Table -->
-      <Card class="p-0">
+      <Card class="p-0" noPadding>
         <StaticDatatable 
           :columns="teamColumns" 
           :data="filteredData"
@@ -115,7 +115,7 @@
         </StaticDatatable>
       </Card>
     </main>
-    
+
 
     <!-- Create Team Sheet -->
     <Teleport to="body">
@@ -146,7 +146,7 @@
                   v-model="createForm.teamName"
                   type="text"
                   placeholder="Enter a team name"
-                  class="w-full bg-white border-2 border-[#091E4224] rounded-[16px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  class="w-full bg-white border-2 border-[#091E4224] rounded-[8px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
               </div>
               
@@ -219,7 +219,7 @@
                 <input
                   v-model="editForm.teamName"
                   type="text"
-                  class="w-full bg-white border-2 border-[#091E4224] rounded-[16px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                  class="w-full bg-white border-2 border-[#091E4224] rounded-[8px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 >
               </div>
               

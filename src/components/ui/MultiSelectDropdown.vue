@@ -2,7 +2,7 @@
   <div class="relative" ref="dropdownRef">
     <div 
       @click="toggleDropdown"
-      class="w-full bg-white border-2 border-[#091E4224] rounded-[16px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent cursor-pointer min-h-[44px] flex items-center justify-between"
+      class="w-full bg-white border-2 border-[#091E4224] rounded-[8px] px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent cursor-pointer min-h-[44px] flex items-center justify-between"
     >
       <span v-if="selectedItems.length === 0" class="text-gray-500">{{ placeholder }}</span>
       <div v-else class="flex flex-wrap gap-1 flex-1">

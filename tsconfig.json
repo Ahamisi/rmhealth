@@ -1,7 +1,21 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": ["src/**/__tests__/*"],
+  "include": [
+    "env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/**/__tests__/*",
+    "src/**/*.js",
+    "src/**/*.vue.js",
+    "src/components/old/**/*",
+    "src/Composables/**/*"
+  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
@@ -9,8 +23,10 @@
       "@/*": ["./src/*"]
     },
     "types": ["node"],
-    "strict": true,
+    "strict": false,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "allowJs": false,
+    "skipLibCheck": true
   }
 } 

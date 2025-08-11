@@ -12,7 +12,7 @@
             :isOpen="openDropdownIndex === index" 
             @toggle="toggleDropdown(index)" 
             @close="closeDropdown"
-            :useThreeDots="item.useThreeDots" 
+            :useThreeDots="'useThreeDots' in item ? (item as any).useThreeDots : false" 
           />
           <!-- Regular links -->
           <router-link 

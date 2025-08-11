@@ -398,17 +398,22 @@ const seller = {
   address: '4, Road 56, Lagos, Nigeria'
 }
 
-const buyer = {
+const customerDetails = {
   name: 'Janet Adeajayi',
   phone: '+234 801 234 5678',
-  store: 'Emeka Pharmacy',
+  store: 'Emeka Pharmacy'
+}
+
+const deliveryDetails = {
+  date: '5/21/2024',
+  time: '10:30 AM',
   address: '4, Road 56, Lagos, Nigeria Lagos State'
 }
 
-const order = {
-  date: '5/21/2024',
-  agent: 'Agent Oreva',
-  phone: '+234 801 234 5678'
+const orderDetails = {
+  orderNumber: 'RHPO-1651245-215',
+  totalItems: 3,
+  totalAmount: '₦2,055,043.00'
 }
 
 const items = ref<OrderItem[]>([

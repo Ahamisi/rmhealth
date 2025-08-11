@@ -27,7 +27,7 @@
               @click="toggleFilterPopover"
               :class="[
                 'flex items-center justify-center w-10 h-10 text-gray-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500',
-                'border-t-2 border-r-2 border-b-2 border-l-0 border-[#091E4224]',
+                'border-t-2 border-r-2 border-b-2 border-l-1 border-[#091E4224]',
                 'rounded-tr-[16px] rounded-br-[16px] rounded-tl-0 rounded-bl-0',
                 showFilterPopover ? 'bg-gray-50' : ''
               ]"

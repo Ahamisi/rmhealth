@@ -3,108 +3,107 @@
     <!-- App Header with Navigation -->
     <AppHeader />
 
-    <main class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <main class="px-4 sm:px-6 lg:px-8 py-6">
       <!-- Page Header -->
-      <div class="flex items-center justify-between mb-6">
-        <h1 class="text-md font-semibold text-[#626F86]">Log Book</h1>
-        <button class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
-          <img src="/src/assets/icons/download.svg" alt="Download" class="w-4 h-4 mr-2 icon-white" />
-          Download Log Books
-        </button>
+      <div class="mb-6">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center space-x-2 text-sm mb-4" style="color: #626F86; font-size: 14px;">
+          <span>Log Book</span>
+        </nav>
       </div>
 
-      <!-- Search and Actions Bar -->
-      <div class="bg-white rounded-lg p-4 mb-6 flex items-center justify-between">
-        <div class="flex items-center space-x-4">
-          <!-- Search -->
+      <!-- Search and Download Header -->
+      <div class="p-0 mb-4 rounded-lg flex items-center justify-between" style="background-color: #f9fafb;">
+        <!-- Search with Sort -->
+        <div class="flex items-center">
+          <!-- Search Input -->
           <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4 text-gray-400" />
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+              <img src="/src/assets/icons/search-icon.svg" alt="Search" class="w-4 h-4">
             </div>
-            <input
-              v-model="searchQuery"
-              type="text"
-              placeholder="Search"
-              class="block w-full input-search"
-              @keyup.enter="handleSearch"
-            />
-          </div>
-        </div>
-
-        <div class="flex items-center space-x-2">
-          <!-- Filter Button -->
-          <button
-            @click="showFilterModal = true"
-            class="inline-flex items-center px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            <img src="/src/assets/icons/filter.svg" alt="Filter" class="w-4 h-4 mr-2" />
-            Filter
-          </button>
-
-          <!-- Sort Button -->
-          <button
-            @click="showSortMenu = !showSortMenu"
-            class="relative inline-flex items-center px-3 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4 mr-2" />
-            Sort
-            
-            <!-- Sort Dropdown -->
-            <div
-              v-if="showSortMenu"
-              class="absolute right-0 top-full mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-20"
-              @click.stop
+            <input 
+              v-model="searchTerm"
+              @input="onSearch"
+              type="text" 
+              placeholder="Search..." 
+              class="w-80 bg-white border-2 border-[#091E4224] rounded-l-[8px] pl-10 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent border-r-0"
             >
+          </div>
+          
+          <!-- Sort Button (Attached) -->
+          <div class="relative" ref="sortDropdownRef">
+            <button 
+              @click="showSortDropdown = !showSortDropdown"
+              class="flex items-center justify-center w-10 h-10 text-gray-600 bg-white border-2 border-[#091E4224] border-l-1 rounded-r-[8px] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500"
+            >
+              <img src="/src/assets/icons/arrow-up-down.svg" alt="Sort" class="w-4 h-4">
+            </button>
+            
+            <!-- Sort Dropdown Menu -->
+            <div v-if="showSortDropdown" class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
               <div class="py-1">
-                <div class="px-3 py-2 text-sm font-medium text-gray-900 border-b border-gray-100">Sort by</div>
                 <button
-                  v-for="option in sortOptions"
-                  :key="option.value"
-                  @click="handleSort(option.value)"
-                  class="w-full px-3 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center justify-between"
-                  :class="{ 'bg-blue-50 text-blue-600': currentSort === option.value }"
+                  v-for="column in sortableColumns"
+                  :key="column.field"
+                  @click="handleSort(column)"
+                  class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center justify-between"
                 >
-                  <span>{{ option.label }}</span>
-                  <div v-if="currentSort === option.value" class="flex items-center">
-                    <span class="text-xs text-blue-600 mr-1">{{ sortDirection === 'asc' ? 'Ascending' : 'Descending' }}</span>
-                    <div class="w-2 h-2 rounded-full bg-blue-600"></div>
+                  <span>{{ column.label }}</span>
+                  <div v-if="sortBy === column.field" class="flex items-center">
+                    <svg v-if="sortOrder === 'asc'" width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 14L12 9L17 14H7Z"/>
+                    </svg>
+                    <svg v-else width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 10L12 15L17 10H7Z"/>
+                    </svg>
                   </div>
                 </button>
               </div>
             </div>
-          </button>
+          </div>
         </div>
+        
+        <!-- Download Button -->
+        <button 
+          @click="downloadLogBooks"
+          class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors"
+        >
+          <img src="/src/assets/icons/download.svg" alt="Download" class="w-6 h-6 icon-white" />
+          <span>Download Log Books</span>
+        </button>
       </div>
 
-      <!-- Log Book Table -->
-      <StaticDatatable
-        :columns="logBookColumns"
-        :data="filteredLogBooks"
-        :searchable="true"
-        :exportable="true"
-        :printable="true"
-        :perPage="10"
-      >
-        <template #column="{ props: { row, column } }">
-          <div v-if="column.field === 'actions'" class="flex items-center justify-center space-x-2">
-            <button 
-              @click="viewLogBook(row)"
-              class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
-              title="View Log Book"
-            >
-              <img src="/src/assets/icons/eye.svg" alt="View" class="w-4 h-4" />
-            </button>
-            <button 
-              @click="editLogBook(row)"
-              class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
-              title="Edit Log Book"
-            >
-              <img src="/src/assets/icons/pen.svg" alt="Edit" class="w-4 h-4" />
-            </button>
-          </div>
-          <span v-else>{{ row[column.field] }}</span>
-        </template>
-      </StaticDatatable>
+      <!-- Data Table -->
+      <Card class="p-0" noPadding>
+        <StaticDatatable 
+          :columns="logBookColumns" 
+          :data="filteredData"
+          :searchable="false"
+          :exportable="false"
+          :printable="false"
+          :perPage="10"
+                >
+          <template #column="{ props: { row, column } }">
+            <div v-if="column.field === 'actions'" class="flex items-center justify-center space-x-2">
+              <button 
+                @click="viewLogBook(row)"
+                class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
+                title="View Log Book"
+              >
+                <img src="/src/assets/icons/eye.svg" alt="View" class="w-4 h-4" />
+              </button>
+              <button 
+                @click="editLogBook(row)"
+                class="p-1 text-gray-600 hover:text-blue-600 transition-colors"
+                title="Edit Log Book"
+              >
+                <img src="/src/assets/icons/pen.svg" alt="Edit" class="w-4 h-4" />
+              </button>
+            </div>
+            <span v-else>{{ row[column.field] }}</span>
+          </template>
+        </StaticDatatable>
+      </Card>
     </main>
 
     <!-- Filter Modal -->
@@ -121,10 +120,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { onClickOutside } from '@vueuse/core'
 import AppHeader from '@/components/layout/AppHeader.vue'
-
+import Card from '@/components/ui/Card.vue'
 import LogBookFilterModal from '@/components/outbound/LogBookFilterModal.vue'
 import StaticDatatable from '@/components/ui/StaticDatatable.vue'
 
@@ -154,13 +154,16 @@ const logBookColumns = ref([
   { field: 'actions', label: 'Actions', sortable: false },
 ])
 
-// Search and filter state
-const searchQuery = ref('')
+// Search and sort state
+const searchTerm = ref('')
+const sortBy = ref('')
+const sortOrder = ref<'asc' | 'desc'>('asc')
+const showSortDropdown = ref(false)
+const sortDropdownRef = ref()
 const showFilterModal = ref(false)
-const showSortMenu = ref(false)
 
-const currentSort = ref('id')
-const sortDirection = ref<'asc' | 'desc'>('asc')
+// Sortable columns
+const sortableColumns = logBookColumns.value.filter(col => col.sortable)
 
 // Filters
 const filters = ref<Filters>({
@@ -168,14 +171,6 @@ const filters = ref<Filters>({
   dateTo: '',
   state: ''
 })
-
-// Sort options
-const sortOptions = [
-  { label: 'ID', value: 'id' },
-  { label: 'Driver Name', value: 'driverName' },
-  { label: 'Order Count', value: 'orderCount' },
-  { label: 'State', value: 'state' }
-]
 
 // Mock data
 const logBooks = ref<LogBook[]>([
@@ -196,57 +191,67 @@ const logBooks = ref<LogBook[]>([
   { id: '01', driverName: 'Henry Christopher', orderCount: 0, state: 'Lagos', deliveryTimeline: '16/01/2025 - 16:34:54s' }
 ])
 
-// Computed
-const filteredLogBooks = computed(() => {
-  let filtered = logBooks.value
+// Click outside to close sort dropdown
+onClickOutside(sortDropdownRef, () => {
+  showSortDropdown.value = false
+})
 
+// Filtered data
+const filteredData = computed(() => {
+  let result = [...logBooks.value]
+  
   // Apply search filter
-  if (searchQuery.value) {
-    filtered = filtered.filter(logBook =>
-      logBook.driverName.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-      logBook.id.includes(searchQuery.value) ||
-      logBook.state.toLowerCase().includes(searchQuery.value.toLowerCase())
-    )
+  if (searchTerm.value) {
+    const search = searchTerm.value.toLowerCase()
+    result = result.filter(item => {
+      return Object.values(item).some(value => 
+        String(value).toLowerCase().includes(search)
+      )
+    })
   }
 
   // Apply state filter
   if (filters.value.state) {
-    filtered = filtered.filter(logBook => logBook.state === filters.value.state)
+    result = result.filter(logBook => logBook.state === filters.value.state)
   }
-
+  
   // Apply sorting
-  filtered.sort((a, b) => {
-    let aValue = a[currentSort.value as keyof LogBook]
-    let bValue = b[currentSort.value as keyof LogBook]
-
-    if (typeof aValue === 'string') {
-      aValue = aValue.toLowerCase()
-      bValue = (bValue as string).toLowerCase()
-    }
-
-    if (sortDirection.value === 'asc') {
-      return aValue < bValue ? -1 : aValue > bValue ? 1 : 0
-    } else {
-      return aValue > bValue ? -1 : aValue < bValue ? 1 : 0
-    }
-  })
-
-  return filtered
+  if (sortBy.value) {
+    result.sort((a, b) => {
+      const aValue = a[sortBy.value as keyof LogBook]
+      const bValue = b[sortBy.value as keyof LogBook]
+      
+      if (typeof aValue === 'number' && typeof bValue === 'number') {
+        return sortOrder.value === 'asc' ? aValue - bValue : bValue - aValue
+      }
+      
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        const comparison = aValue.localeCompare(bValue)
+        return sortOrder.value === 'asc' ? comparison : -comparison
+      }
+      
+      return 0
+    })
+  }
+  
+  return result
 })
 
 // Methods
-const handleSearch = () => {
-  // Search is reactive through computed property
+const onSearch = () => {
+  // Search is handled by the computed filteredData
 }
 
-const handleSort = (sortKey: string) => {
-  if (currentSort.value === sortKey) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    currentSort.value = sortKey
-    sortDirection.value = 'asc'
-  }
-  showSortMenu.value = false
+const handleSort = (column: { field: string; label: string }) => {
+  const newOrder = sortBy.value === column.field && sortOrder.value === 'asc' ? 'desc' : 'asc'
+  sortBy.value = column.field
+  sortOrder.value = newOrder
+  showSortDropdown.value = false
+}
+
+const downloadLogBooks = () => {
+  // Simulate download functionality
+  console.log('Downloading log books...')
 }
 
 const handleFilterApply = (newFilters: Filters) => {
@@ -270,20 +275,4 @@ const viewLogBook = (logBook: LogBook) => {
 const editLogBook = (logBook: LogBook) => {
   router.push(`/outbound/log-book/${logBook.id}/edit`)
 }
-
-// Click outside handler
-const handleClickOutside = (event: Event) => {
-  const target = event.target as HTMLElement
-  if (!target.closest('.relative')) {
-    showSortMenu.value = false
-  }
-}
-
-onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
-
-onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
 </script> 
