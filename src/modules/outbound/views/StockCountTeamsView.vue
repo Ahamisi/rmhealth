@@ -115,6 +115,7 @@
         </StaticDatatable>
       </Card>
     </main>
+    
 
     <!-- Create Team Sheet -->
     <Teleport to="body">
