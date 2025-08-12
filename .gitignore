@@ -92,7 +92,7 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
+# NOTE: public folder removed from gitignore - we need it for static assets!
 
 # Storybook build outputs
 .out

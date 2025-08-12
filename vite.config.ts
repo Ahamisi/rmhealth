@@ -30,7 +30,7 @@ export default defineConfig({
       }
     }
   },
-  publicDir: 'public',
+  publicDir: 'public',  // Ensure public directory is copied
   assetsInclude: ['**/*.svg', '**/*.otf', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.webp', '**/*.mp4', '**/*.webm', '**/*.ogg', '**/*.mp3', '**/*.wav', '**/*.flac', '**/*.aac', '**/*.woff', '**/*.woff2', '**/*.eot', '**/*.ttf'],
   server: {
     port: 3000,
